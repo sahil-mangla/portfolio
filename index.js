@@ -324,7 +324,6 @@ a secure electronic transmission to secure candidate immediately!`,
    ========================================================================== */
 function initScrollAnimations() {
   const elementsToReveal = document.querySelectorAll('.entrance-hidden');
-  const skillBars = document.querySelectorAll('.skill-fill-bar');
   const navLinks = document.querySelectorAll('.nav-link');
   const sections = document.querySelectorAll('section');
 
@@ -339,24 +338,6 @@ function initScrollAnimations() {
   }, { threshold: 0.15 });
 
   elementsToReveal.forEach(el => revealObserver.observe(el));
-
-  // Skills fill-bar observer (trigger fill transition on scroll)
-  const skillsObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        skillBars.forEach(bar => {
-          const level = bar.getAttribute('data-level');
-          bar.style.width = level;
-        });
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.2 });
-
-  const skillsSection = document.getElementById('about');
-  if (skillsSection) {
-    skillsObserver.observe(skillsSection);
-  }
 
   // Active Nav Tracker on scroll
   window.addEventListener('scroll', () => {
@@ -572,22 +553,15 @@ function initContactForm() {
     statusMsg.style.display = 'none';
 
     if (WEB3FORMS_ACCESS_KEY) {
-      // LIVE TRANSMISSION VIA WEB3FORMS API
+      // LIVE TRANSMISSION VIA WEB3FORMS API (Standard FormData Post)
       try {
+        const formData = new FormData(form);
+        // Prepend custom email subject identifier
+        formData.set("subject", `[Portfolio Connect] ${subjectInput.value.trim()}`);
+
         const response = await fetch("https://api.web3forms.com/submit", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-          },
-          body: JSON.stringify({
-            access_key: WEB3FORMS_ACCESS_KEY,
-            name: nameInput.value.trim(),
-            email: emailInput.value.trim(),
-            subject: `[Portfolio Connect] ${subjectInput.value.trim()}`,
-            message: messageInput.value.trim(),
-            from_name: nameInput.value.trim()
-          })
+          body: formData
         });
 
         const result = await response.json();
