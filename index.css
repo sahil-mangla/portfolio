@@ -710,10 +710,9 @@ a {
   transform: translateY(0);
 }
 
-/* --- ABOUT & TRAJECTORY SECTION --- */
 .about-grid {
   display: grid;
-  grid-template-columns: 3fr 2fr;
+  grid-template-columns: 1fr;
   gap: var(--spacing-scale-xl);
   align-items: flex-start;
 }
@@ -781,9 +780,10 @@ a {
 
 /* Interactive Category Cards (Skills Grid) */
 .skills-categories-box {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-scale-lg);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  width: 100%;
 }
 
 .skills-category-card {
