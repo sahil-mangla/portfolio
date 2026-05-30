@@ -417,26 +417,51 @@
       <div class="contact-grid">
         
         <div class="contact-info-panel">
-          <p style="font-weight: 300;">
+          <p class="contact-description">
             Whether you want to collaborate on a production-grade system, consult on integrating lightweight edge models into web apps, or discuss high-impact roles in your company — let's configure a communication tunnel.
           </p>
 
-          <div class="contact-info-card glass-panel border-glow-hover">
-            <div class="contact-icon-wrapper">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-            </div>
-            <div class="contact-details-box">
-              <span class="contact-label">GMail</span>
-              <a href="mailto:sahilmangla.work@gmail.com" class="contact-value">sahilmangla.official@gmail.com</a>
-            </div>
-          </div>
-
-          <div class="social-links-row">
-            <a href="https://github.com/sahil-mangla" class="social-circle-btn" target="_blank" rel="noopener" aria-label="Sahil's GitHub profile">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+          <div class="contact-cards-container">
+            <!-- GMail Card -->
+            <a href="mailto:sahilmangla.official@gmail.com" class="contact-card-premium glass-panel border-glow-hover">
+              <div class="contact-card-icon-box">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+              </div>
+              <div class="contact-card-content">
+                <span class="contact-card-label">GMail Channel</span>
+                <span class="contact-card-value">sahilmangla.official@gmail.com</span>
+              </div>
+              <div class="contact-card-arrow">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+              </div>
             </a>
-            <a href="https://www.linkedin.com/in/sahil-manglaa/" class="social-circle-btn" target="_blank" rel="noopener" aria-label="Sahil's LinkedIn profile">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" /></svg>
+
+            <!-- LinkedIn Card -->
+            <a href="https://www.linkedin.com/in/sahil-manglaa/" target="_blank" rel="noopener" class="contact-card-premium glass-panel border-glow-hover">
+              <div class="contact-card-icon-box">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" /></svg>
+              </div>
+              <div class="contact-card-content">
+                <span class="contact-card-label">LinkedIn Profile</span>
+                <span class="contact-card-value">in/sahil-manglaa</span>
+              </div>
+              <div class="contact-card-arrow">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+              </div>
+            </a>
+
+            <!-- GitHub Card -->
+            <a href="https://github.com/sahil-mangla" target="_blank" rel="noopener" class="contact-card-premium glass-panel border-glow-hover">
+              <div class="contact-card-icon-box">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+              </div>
+              <div class="contact-card-content">
+                <span class="contact-card-label">GitHub Core</span>
+                <span class="contact-card-value">github.com/sahil-mangla</span>
+              </div>
+              <div class="contact-card-arrow">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+              </div>
             </a>
           </div>
         </div>
@@ -466,7 +491,12 @@
 
             <div class="form-status-msg" id="form-status" role="alert"></div>
 
-            <button type="submit" class="btn-primary" style="align-self: flex-start;">Send Message</button>
+            <button type="submit" class="btn-primary btn-submit-premium" id="submit-btn" style="align-self: flex-start;">
+              <span>Send Message</span>
+              <svg class="btn-submit-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+              </svg>
+            </button>
           </form>
         </div>
 

@@ -519,11 +519,28 @@ function initProjectFiltersAndModals() {
 /* ==========================================================================
    7. CONTACT FORM ASYNC SIMULATOR & VALIDATIONS
    ========================================================================== */
+/* ==========================================================================
+   7. CONTACT FORM REALIZATION & VALIDATIONS (Web3Forms Native Integration)
+   ========================================================================== */
 function initContactForm() {
   const form = document.getElementById('contact-form');
   const statusMsg = document.getElementById('form-status');
+  const submitBtn = document.getElementById('submit-btn');
 
-  form.addEventListener('submit', (e) => {
+  // --- NATIVE WORKSPACE CONFIGURATION ---
+  // To enable direct email delivery to your GMail inbox for FREE:
+  // 1. Visit https://web3forms.com and request a free Access Key.
+  // 2. Paste your Access Key below.
+  const WEB3FORMS_ACCESS_KEY = "e2b5224c-c266-40e5-a697-07c58b554262"; // E.g. "a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d"
+
+  if (!WEB3FORMS_ACCESS_KEY) {
+    console.warn(
+      "CONTACT SYSTEM: Currently running in simulation mode. " +
+      "To receive direct emails, register at web3forms.com and configure WEB3FORMS_ACCESS_KEY in index.js!"
+    );
+  }
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     
     const nameInput = document.getElementById('form-name');
@@ -531,33 +548,77 @@ function initContactForm() {
     const subjectInput = document.getElementById('form-subject');
     const messageInput = document.getElementById('form-message');
 
-    // Simple robust HTML5 checks
-    if (!nameInput.value || !emailInput.value || !subjectInput.value || !messageInput.value) {
+    // Simple robust validation
+    if (!nameInput.value.trim() || !emailInput.value.trim() || !subjectInput.value.trim() || !messageInput.value.trim()) {
       showStatus("All fields are required coordinates.", "error");
       return;
     }
 
-    if (!validateEmail(emailInput.value)) {
+    if (!validateEmail(emailInput.value.trim())) {
       showStatus("Provided email coordinates are structurally invalid.", "error");
       return;
     }
 
-    // Submit state loading feedback
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = "Establishing Sync Tunnel...";
+    // Capture inputs for locking during transmission
+    const inputs = [nameInput, emailInput, subjectInput, messageInput];
+    
+    // Set processing/loading state
+    submitBtn.classList.add('processing');
+    const submitBtnText = submitBtn.querySelector('span');
+    const originalText = submitBtnText.textContent;
+    submitBtnText.textContent = "Launching Transmission...";
     submitBtn.disabled = true;
-    submitBtn.style.opacity = '0.7';
+    inputs.forEach(input => input.disabled = true);
+    statusMsg.style.display = 'none';
 
-    // Simulate async sync request (1.5s delay)
-    setTimeout(() => {
-      submitBtn.textContent = originalText;
+    if (WEB3FORMS_ACCESS_KEY) {
+      // LIVE TRANSMISSION VIA WEB3FORMS API
+      try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify({
+            access_key: WEB3FORMS_ACCESS_KEY,
+            name: nameInput.value.trim(),
+            email: emailInput.value.trim(),
+            subject: `[Portfolio Connect] ${subjectInput.value.trim()}`,
+            message: messageInput.value.trim(),
+            from_name: nameInput.value.trim()
+          })
+        });
+
+        const result = await response.json();
+
+        if (response.status === 200 && result.success) {
+          showStatus("Transmission delivered! I will sync with you shortly.", "success");
+          form.reset();
+        } else {
+          showStatus(result.message || "Transmission failed to establish tunnel. Please use GMail directly.", "error");
+        }
+      } catch (error) {
+        console.error("Transmission Error:", error);
+        showStatus("Network socket timed out. Please try sending via GMail directly.", "error");
+      } finally {
+        resetButtonState();
+      }
+    } else {
+      // BEAUTIFUL SIMULATED SYNCHRONIZATION Handshake
+      setTimeout(() => {
+        showStatus("Sync handshake succeeded (Simulated)! Please configure your Web3Forms Access Key in index.js to go live.", "success");
+        form.reset();
+        resetButtonState();
+      }, 2000);
+    }
+
+    function resetButtonState() {
+      submitBtn.classList.remove('processing');
+      submitBtnText.textContent = originalText;
       submitBtn.disabled = false;
-      submitBtn.style.opacity = '1';
-      
-      showStatus("Sync handshake succeeded! I will respond shortly.", "success");
-      form.reset();
-    }, 1500);
+      inputs.forEach(input => input.disabled = false);
+    }
   });
 
   function validateEmail(email) {
@@ -568,6 +629,7 @@ function initContactForm() {
   function showStatus(text, type) {
     statusMsg.className = `form-status-msg ${type}`;
     statusMsg.textContent = text;
+    statusMsg.style.display = 'block';
     
     // Smooth scroll status message into view
     statusMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
