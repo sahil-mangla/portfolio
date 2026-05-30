@@ -248,7 +248,7 @@ Transformers    : █ █ █ █ █ █ █ ░ ░ ░  [80%]`,
 Institution : Thapar Institute of Engineering and Technology (TIET)
 Degree      : Bachelor of Engineering (B.E.) - Computer Engineering
 Graduation  : Expected 2028
-Current GPA : 9.4 / 10.0
+Current GPA : 8.3 / 10.0
 Focus Area  : Machine Learning optimization, EV diagnostics & fraud detection architectures`,
  
     contact: () => `COMMUNICATION coordinates
