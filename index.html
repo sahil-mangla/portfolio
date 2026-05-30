@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Sahil Mangla — Computer Engineering Student at TIET operating at the intersection of Web Development and ML Engineering. Elite engineering solutions that bridge complex data architectures with immersive frontend design.">
+  <meta name="author" content="Sahil Mangla">
+  <meta name="keywords" content="Sahil Mangla, Web Developer, ML Engineer, AI Engineer, Deep Learning, Next.js, PyTorch, Portfolio, Software Engineer">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sahil Mangla | Web Dev & ML/AI Engineer Portfolio">
+  <meta property="og:description" content="Computer Engineering Student at TIET operating at the intersection of Web Development and ML Engineering. Exploring high-performance systems where data meets premium user experiences.">
+  <meta property="og:url" content="https://sahil-mangla.github.io">
+  <meta property="og:image" content="https://sahilmangla.dev/og-image.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Sahil Mangla | Web Dev & ML/AI Engineer Portfolio">
+  <meta property="twitter:description" content="Computer Engineering Student at TIET operating at the intersection of Web Development and ML Engineering. Exploring high-performance systems where data meets premium user experiences.">
+
+  <title>Sahil Mangla | Web Dev & ML Engineer</title>
+  
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <!-- Background Canvas for Interactive Neural Node Particle System -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- Iridescent morphing background blobs -->
+  <div class="iridescent-orb-container" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- NAVIGATION BAR -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="#hero" class="logo-initials" aria-label="Sahil Mangla's Portfolio Home">
+          Sahil Mangla's Portfolio
+        </a>
+      
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Mobile Menu" aria-expanded="false" aria-controls="nav-links">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m7 6H4" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero" aria-label="Welcome">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="ping" aria-hidden="true"></span>
+            <span>Available for Internships</span>
+          </div>
+          <h1 class="hero-title">
+            Sahil Mangla.
+            <span>Precision,Crafted.</span>
+          </h1>
+          <p class="hero-tagline">
+            Computer Engineering Student operating at the intersection of high-fidelity Web Architecture and Advanced Deep Learning models. Building systems where math meets execution.
+          </p>
+          <div class="hero-ctas">
+            <a href="#projects" class="btn-primary" id="hero-cta-work">Explore Work</a>
+            <a href="Sahil-Resume.pdf" class="btn-secondary" id="hero-cta-resume" download="Sahil-Resume.pdf">Download Resume</a>
+          </div>
+        </div>
+        
+        <!-- Interactive Terminal Simulator -->
+        <div class="terminal-wrapper" id="terminal-trigger">
+          <div class="terminal-container">
+            <div class="terminal-header-bar">
+              <div class="terminal-buttons">
+                <span class="terminal-btn term-close"></span>
+                <span class="terminal-btn term-min"></span>
+                <span class="terminal-btn term-max"></span>
+              </div>
+              <div class="terminal-title">sahil-mangla@kernel-shell: ~</div>
+              <div style="width: 42px;"></div> <!-- spacer -->
+            </div>
+            
+            <div class="terminal-body" id="terminal-body">
+              <div class="terminal-welcome">
+                Welcome to Sahil's Interactive Kernel [v1.0.5].<br>
+                Type <span style="color:var(--accent-secondary); font-weight:600;">help</span> and press <span style="color:var(--accent-color); font-weight:600;">Shift + Enter</span> to execute commands.
+              </div>
+              
+              <div class="terminal-history" id="terminal-history">
+                <!-- Executed command entries rendered here -->
+              </div>
+              
+              <div class="terminal-input-line">
+                <span class="prompt-symbol">$</span>
+                <input type="text" class="terminal-input" id="terminal-input" placeholder="Type a command (Shift + Enter)..." autocomplete="off" spellcheck="false" aria-label="Developer Console Terminal Input">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#about" class="scroll-indicator" aria-label="Scroll down to About section">
+        <span>Scroll Down</span>
+        <div class="mouse-icon">
+          <span class="wheel"></span>
+        </div>
+      </a>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="section-wrapper entrance-hidden" id="about">
+      <div class="section-header">
+        <span class="section-label">01 / Origins</span>
+        <h2 class="section-title">Core Philosophy & Systems</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-narrative">
+          <p class="about-intro-text">
+            Second-year Computer Engineering student at TIET with a strong track record of building ML and full-stack web solutions for real-world problems — from EV battery diagnostics to identity fraud detection.
+          </p>
+          <p>
+            Driven by a conviction that sustainability and optimisation are the defining engineering challenges of this decade. I approach every project with a structured problem-framing methodology: defining scope, constraints, and architecture before writing a single line of code.
+          </p>
+          <p>
+            As an international hackathon winner with hands-on experience shipping end-to-end systems across the ML and web stack, I focus on engineering integrated software architectures. I specialize in bridging systems-level thinking with exceptional visual craft, bringing autonomous problem solving and first-principles execution to global engineering teams.
+          </p>
+          
+          <div class="learning-badge-box">
+            <span class="learning-box-title">Currently Refining & Deploying</span>
+            <div class="badge-cloud">
+              <div class="tech-badge"><span class="dot"></span>PyTorch</div>
+              <div class="tech-badge"><span class="dot"></span>ONNX WebRuntime</div>
+              <div class="tech-badge"><span class="dot"></span>Next.js / SSR</div>
+              <div class="tech-badge"><span class="dot"></span>Transformers Architecture</div>
+              <div class="tech-badge"><span class="dot"></span>WebGL Graphics</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Categorized Skills Grid -->
+        <div class="skills-categories-box">
+          
+          <!-- Web Dev Skills Card -->
+          <div class="skills-category-card glass-panel border-glow-hover">
+            <div class="skills-card-header">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+              </svg>
+              <h3 class="skills-card-title">Web Architecture</h3>
+            </div>
+            <div class="skill-items-grid">
+              <div class="skill-row">
+                <div class="skill-row-info">
+                  <span class="skill-row-name">TypeScript / Javascript</span>
+                  <span class="skill-row-value">95%</span>
+                </div>
+                <div class="skill-track-bar">
+                  <div class="skill-fill-bar" data-level="95%"></div>
+                </div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-row-info">
+                  <span class="skill-row-name">Next.js / React / Node.js</span>
+                  <span class="skill-row-value">90%</span>
+                </div>
+                <div class="skill-track-bar">
+                  <div class="skill-fill-bar" data-level="90%"></div>
+                </div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-row-info">
+                  <span class="skill-row-name">WebGL / HTML5 Canvas / CSS</span>
+                  <span class="skill-row-value">85%</span>
+                </div>
+                <div class="skill-track-bar">
+                  <div class="skill-fill-bar" data-level="85%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ML/AI Skills Card -->
+          <div class="skills-category-card glass-panel border-glow-hover">
+            <div class="skills-card-header">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              </svg>
+              <h3 class="skills-card-title">Intelligence & Data</h3>
+            </div>
+            <div class="skill-items-grid">
+              <div class="skill-row">
+                <div class="skill-row-info">
+                  <span class="skill-row-name">Python / PyTorch</span>
+                  <span class="skill-row-value">90%</span>
+                </div>
+                <div class="skill-track-bar">
+                  <div class="skill-fill-bar" data-level="90%"></div>
+                </div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-row-info">
+                  <span class="skill-row-name">Transformers / NLP Models</span>
+                  <span class="skill-row-value">80%</span>
+                </div>
+                <div class="skill-track-bar">
+                  <div class="skill-fill-bar" data-level="80%"></div>
+                </div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-row-info">
+                  <span class="skill-row-name">ONNX Runtime / WebAssembly</span>
+                  <span class="skill-row-value">85%</span>
+                </div>
+                <div class="skill-track-bar">
+                  <div class="skill-fill-bar" data-level="85%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section class="section-wrapper entrance-hidden" id="projects">
+      <div class="section-header">
+        <span class="section-label">02 / Showcases</span>
+        <h2 class="section-title">Selected Architectural Works</h2>
+      </div>
+
+      <!-- Grid -->
+      <div class="projects-masonry-grid" id="projects-grid">
+        
+        <!-- Project 1: Volt AI -->
+        <article class="project-card glass-panel border-glow-hover" data-category="hybrid" data-id="1">
+          <div class="project-card-header">
+            <div class="project-meta-code"># battery_intelligence // production</div>
+            <span class="project-tag-pill">Predictive Maintenance</span>
+          </div>
+          <h3 class="project-name">Volt AI</h3>
+          <p class="project-summary">
+            A cloud-native battery intelligence platform designed for predictive maintenance, health monitoring, and Remaining Useful Life (RUL) estimation of EV battery systems.
+          </p>
+          <div class="project-tech-badges">
+            <span class="project-tech-badge">FastAPI</span>
+            <span class="project-tech-badge">Docker</span>
+            <span class="project-tech-badge">Azure App Service</span>
+            <span class="project-tech-badge">Azure SQL</span>
+            <span class="project-tech-badge">React</span>
+            <span class="project-tech-badge">LSTM</span>
+          </div>
+          <div class="project-card-footer">
+            <div class="project-links">
+              <a href="https://github.com/sahil-mangla/Volt-AI" class="project-link-item" target="_blank" rel="noopener" aria-label="GitHub Repository for Volt AI">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+                <span>Code</span>
+              </a>
+              <a href="https://voltt-ai.vercel.app/" class="project-link-item" target="_blank" rel="noopener" aria-label="Volt AI Live Site">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                <span>Live</span>
+              </a>
+            </div>
+            <button class="view-more-details-btn" aria-label="Open detailed view for Volt AI">
+              <span>View Details</span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+            </button>
+          </div>
+        </article>
+
+        <!-- Project 2: BiasBeacon -->
+        <article class="project-card glass-panel border-glow-hover" data-category="ml" data-id="2">
+          <div class="project-card-header">
+            <div class="project-meta-code"># algorithmic_fairness // live</div>
+            <span class="project-tag-pill">ML Ethics</span>
+          </div>
+          <h3 class="project-name">BiasBeacon</h3>
+          <p class="project-summary">
+            A premium, ethics-driven platform designed to audit, visualize, and mitigate algorithmic bias in machine learning models using advanced fairness forecasting.
+          </p>
+          <div class="project-tech-badges">
+            <span class="project-tech-badge">Next.js</span>
+            <span class="project-tech-badge">FastAPI</span>
+            <span class="project-tech-badge">Docker</span>
+            <span class="project-tech-badge">Cloud Run</span>
+            <span class="project-tech-badge">Fairness Metrics</span>
+            <span class="project-tech-badge">Rechart.js</span>
+          </div>
+          <div class="project-card-footer">
+            <div class="project-links">
+              <a href="https://github.com/sahil-mangla/BiasBeacon" class="project-link-item" target="_blank" rel="noopener" aria-label="GitHub Repository for BiasBeacon">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+                <span>Code</span>
+              </a>
+              <a href="https://frontend-436542799320.us-central1.run.app/" class="project-link-item" target="_blank" rel="noopener" aria-label="BiasBeacon Live Site">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                <span>Live</span>
+              </a>
+            </div>
+            <button class="view-more-details-btn" aria-label="Open detailed view for BiasBeacon">
+              <span>View Details</span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+            </button>
+          </div>
+        </article>
+
+        <!-- Project 3: MyHeritage Passport -->
+        <article class="project-card glass-panel border-glow-hover" data-category="web" data-id="3">
+          <div class="project-card-header">
+            <div class="project-meta-code"># digital_identity // secure</div>
+            <span class="project-tag-pill">Frontend/Backend</span>
+          </div>
+          <h3 class="project-name">MyHeritage Passport</h3>
+          <p class="project-summary">
+            A high-fidelity digital identity verification and ancestry passport generator, integrating facial feature metrics and document verification classifiers.
+          </p>
+          <div class="project-tech-badges">
+            <span class="project-tech-badge">Next.js</span>
+            <span class="project-tech-badge">Tailwind CSS</span>
+            <span class="project-tech-badge">Node.js</span>
+            <span class="project-tech-badge">Express</span>
+            <span class="project-tech-badge">Face API</span>
+            <span class="project-tech-badge">Fraud Detection</span>
+          </div>
+          <div class="project-card-footer">
+            <div class="project-links">
+              <a href="https://github.com/sahil-mangla/MyHeritage-Passport" class="project-link-item" target="_blank" rel="noopener" aria-label="GitHub Repository for MyHeritage Passport">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+                <span>Code</span>
+              </a>
+              <a href="https://my-heritage-passport.vercel.app/" class="project-link-item" target="_blank" rel="noopener" aria-label="MyHeritage Passport Live Site">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                <span>Live</span>
+              </a>
+            </div>
+            <button class="view-more-details-btn" aria-label="Open detailed view for MyHeritage Passport">
+              <span>View Details</span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+            </button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section class="section-wrapper entrance-hidden" id="education">
+      <div class="section-header">
+        <span class="section-label">03 / Foundation</span>
+        <h2 class="section-title">Academic & Trajectory Milestones</h2>
+      </div>
+
+      <div class="education-timeline">
+        
+        <!-- Timeline Item 1 -->
+        <div class="timeline-item">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <div class="timeline-card glass-panel border-glow-hover">
+            <div class="timeline-meta">
+              <span class="timeline-date-tag">2024 — 2028</span>
+              <span class="timeline-location">Thapar Institute of Engineering and Technology (TIET)</span>
+            </div>
+            <h3 class="timeline-degree">Bachelor of Engineering (B.E.) in Computer Engineering</h3>
+            <h4 class="timeline-school">Focusing on Machine Learning, Full-Stack Optimization & Sustainability</h4>
+            
+            <div class="timeline-gpa" aria-label="Grade Point Average">
+              <strong>CGPA: 8.3 / 10.0</strong>
+            </div>
+
+            <div class="timeline-details">
+              <p class="timeline-details-p">
+                Operating with a rigorous engineering curriculum centered on mathematical optimization, systems design, and data structures.
+              </p>
+              
+              <div class="timeline-courses-box">
+                <span class="timeline-courses-title">Core Academic Coursework</span>
+                <div class="courses-grid">
+                  <span class="course-pill">Artifical Intelligence</span>
+                  <span class="course-pill">Analysis of Algorithms</span>
+                  <span class="course-pill">Database and Mangement System</span>
+                  <span class="course-pill">Data Structures</span>
+                  <span class="course-pill">Operating Systems</span>
+                  <span class="course-pill">Computer Networks</span>
+                  <span class="course-pill">Object Oriented Programming</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="section-wrapper entrance-hidden" id="contact">
+      <div class="section-header">
+        <span class="section-label">04 / Connect</span>
+        <h2 class="section-title">Establish Sync Coordinates</h2>
+      </div>
+
+      <div class="contact-grid">
+        
+        <div class="contact-info-panel">
+          <p style="font-weight: 300;">
+            Whether you want to collaborate on a production-grade system, consult on integrating lightweight edge models into web apps, or discuss high-impact roles in your company — let's configure a communication tunnel.
+          </p>
+
+          <div class="contact-info-card glass-panel border-glow-hover">
+            <div class="contact-icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+            </div>
+            <div class="contact-details-box">
+              <span class="contact-label">GMail</span>
+              <a href="mailto:sahilmangla.work@gmail.com" class="contact-value">sahilmangla.official@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="social-links-row">
+            <a href="https://github.com/sahil-mangla" class="social-circle-btn" target="_blank" rel="noopener" aria-label="Sahil's GitHub profile">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/sahil-manglaa/" class="social-circle-btn" target="_blank" rel="noopener" aria-label="Sahil's LinkedIn profile">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" /></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-form-panel glass-panel border-glow-hover">
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="form-group-row">
+              <div class="form-field-box">
+                <label for="form-name">Name</label>
+                <input type="text" class="form-input" id="form-name" placeholder="E.g., Dr. Aris Harrison" required>
+              </div>
+              <div class="form-field-box">
+                <label for="form-email">Email Address</label>
+                <input type="email" class="form-input" id="form-email" placeholder="E.g., aris@deepmind.com" required>
+              </div>
+            </div>
+            
+            <div class="form-field-box">
+              <label for="form-subject">Subject</label>
+              <input type="text" class="form-input" id="form-subject" placeholder="E.g., Quantitative Architecture Role Sync" required>
+            </div>
+
+            <div class="form-field-box">
+              <label for="form-message">Transmission Content</label>
+              <textarea class="form-textarea" id="form-message" placeholder="Input message details here..." required></textarea>
+            </div>
+
+            <div class="form-status-msg" id="form-status" role="alert"></div>
+
+            <button type="submit" class="btn-primary" style="align-self: flex-start;">Send Message</button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        Sahil Mangla's Portfolio
+      </div>
+      <div class="footer-credits">
+        <p>&copy; 2026 Sahil Mangla. All rights reserved.</p>
+        <p style="font-size:0.7rem; font-family:var(--font-mono); color:var(--accent-color);">Built with raw Canvas, WebGL shaders & semantic HTML5.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- DYNAMIC PROJECT DETAIL MODAL PORTAL -->
+  <div class="modal-overlay" id="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-project-name">
+    <div class="modal-container glass-panel">
+      <button class="modal-close-btn" id="modal-close" aria-label="Close details modal">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      
+      <div class="modal-header-meta" id="modal-project-category"></div>
+      <h2 class="modal-project-name" id="modal-project-name"></h2>
+      <p class="modal-project-tagline" id="modal-project-tagline"></p>
+      
+      <div class="modal-content-grid">
+        <div class="modal-left-content">
+          <div>
+            <h3 class="modal-section-title">Core Architecture Overview</h3>
+            <p class="modal-desc-p" id="modal-project-long-desc"></p>
+          </div>
+          <div>
+            <h3 class="modal-section-title">Key Engineering Insights</h3>
+            <p class="modal-desc-p" id="modal-project-learnings"></p>
+          </div>
+        </div>
+        
+        <div class="modal-right-content">
+          <div>
+            <h3 class="modal-section-title">Specifications</h3>
+            <ul class="modal-spec-list">
+              <li class="modal-spec-item">
+                <span class="modal-spec-label">Environment</span>
+                <span class="modal-spec-val" id="modal-spec-env">Web Browser</span>
+              </li>
+              <li class="modal-spec-item">
+                <span class="modal-spec-label">Engine Class</span>
+                <span class="modal-spec-val" id="modal-spec-class">Client-Edge</span>
+              </li>
+              <li class="modal-spec-item">
+                <span class="modal-spec-label">Data Sync</span>
+                <span class="modal-spec-val" id="modal-spec-sync">WebGL Pipeline</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 class="modal-section-title">Integrations</h3>
+            <div class="modal-tech-cloud" id="modal-tech-cloud"></div>
+          </div>
+
+          <div class="modal-links-box" id="modal-links-box">
+            <!-- Modal links injected here -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="index.js?v=1.0.6"></script>
+</body>
+</html>
