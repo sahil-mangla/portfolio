@@ -553,15 +553,22 @@ function initContactForm() {
     statusMsg.style.display = 'none';
 
     if (WEB3FORMS_ACCESS_KEY) {
-      // LIVE TRANSMISSION VIA WEB3FORMS API (Standard FormData Post)
+      // LIVE TRANSMISSION VIA WEB3FORMS API (Official JS Fetch JSON Method)
       try {
         const formData = new FormData(form);
         // Prepend custom email subject identifier
         formData.set("subject", `[Portfolio Connect] ${subjectInput.value.trim()}`);
+        
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
 
         const response = await fetch("https://api.web3forms.com/submit", {
           method: "POST",
-          body: formData
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: json
         });
 
         const result = await response.json();
